@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Telas\Pessoas\Medicso\AltMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Telas\Pessoas\Medicso\CadMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Telas\Pessoas\Medicso\ListarMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Telas\Pessoas\Pacientes\AltPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
