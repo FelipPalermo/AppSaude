@@ -34,6 +34,8 @@
             ListarMedicos = new Button();
             GroupCadastro = new GroupBox();
             BtAgendarExame = new Button();
+            btPagarExame = new Button();
+            btHistoricoExames = new Button();
             GroupCadastro.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // BtAgendarExame
             // 
             BtAgendarExame.Font = new Font("Segoe UI", 10F);
-            BtAgendarExame.Location = new Point(415, 58);
+            BtAgendarExame.Location = new Point(511, 34);
             BtAgendarExame.Name = "BtAgendarExame";
             BtAgendarExame.Size = new Size(159, 45);
             BtAgendarExame.TabIndex = 0;
@@ -105,11 +107,33 @@
             BtAgendarExame.UseVisualStyleBackColor = true;
             BtAgendarExame.Click += BtAgendarExame_Click;
             // 
+            // btPagarExame
+            // 
+            btPagarExame.Font = new Font("Segoe UI", 10F);
+            btPagarExame.Location = new Point(433, 85);
+            btPagarExame.Name = "btPagarExame";
+            btPagarExame.Size = new Size(159, 45);
+            btPagarExame.TabIndex = 0;
+            btPagarExame.Text = "Pagar Exame";
+            btPagarExame.UseVisualStyleBackColor = true;
+            // 
+            // btHistoricoExames
+            // 
+            btHistoricoExames.Font = new Font("Segoe UI", 10F);
+            btHistoricoExames.Location = new Point(598, 85);
+            btHistoricoExames.Name = "btHistoricoExames";
+            btHistoricoExames.Size = new Size(159, 45);
+            btHistoricoExames.TabIndex = 0;
+            btHistoricoExames.Text = "Historico de exames";
+            btHistoricoExames.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 596);
+            Controls.Add(btHistoricoExames);
+            Controls.Add(btPagarExame);
             Controls.Add(BtAgendarExame);
             Controls.Add(GroupCadastro);
             Name = "Home";
@@ -128,5 +152,7 @@
         private Button ListarMedicos;
         private GroupBox GroupCadastro;
         private Button BtAgendarExame;
+        private Button btPagarExame;
+        private Button btHistoricoExames;
     }
 }

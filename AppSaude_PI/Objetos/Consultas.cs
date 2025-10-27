@@ -14,7 +14,7 @@ namespace AppSaude_PI.Objetos
         public string pacienteNome { get; set; }
         public string medicoNome { get; set; }
         public string descricao  { get; set; }
-        public int valor { get; set; }
+        public decimal valor { get; set; }
         public DateTime dataConsulta { get; set; }
         public bool pagamento { get; set; }
 

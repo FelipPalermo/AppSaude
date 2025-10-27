@@ -79,6 +79,34 @@ namespace AppSaude_PI.MySQL
         }
         #endregion
 
+        #region GetOne
+        public static T SqlGetOne<T>(string query, Func<MySqlDataReader, T> map)
+        {
+            try
+            {
+                using (MySqlConnection SqlConn = new MySqlConnection(SQLConnString))
+                {
+                    SqlConn.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, SqlConn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return map(reader);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return default(T);
+        }
+        #endregion
+
         #region Alterar paciente
         static public void alterarPaciente(Paciente p)
         {
@@ -142,7 +170,7 @@ namespace AppSaude_PI.MySQL
                     string insertString = $"Update medicos " +
                         $"SET nome = @nome," +
                         $"cpf = @cpf," +
-                        $"rg = @rg," +
+                        $"crm = @crm," +
                         $"sexo = @sexo," +
                         $"DataNascimento = @DataNascimento," +
                         $"telefone = @telefone," +
@@ -153,7 +181,7 @@ namespace AppSaude_PI.MySQL
                     MySqlCommand SqlCommand = new MySqlCommand(insertString, SqlConn);
                     SqlCommand.Parameters.AddWithValue("@nome", m.Nome);
                     SqlCommand.Parameters.AddWithValue("@cpf", m.CPF);
-                    SqlCommand.Parameters.AddWithValue("@rg", m.RG);
+                    SqlCommand.Parameters.AddWithValue("@crm", m.CRM);
                     SqlCommand.Parameters.AddWithValue("@sexo", m.Sexo);
                     SqlCommand.Parameters.AddWithValue("@DataNascimento", m.DataNasciscmento);
                     SqlCommand.Parameters.AddWithValue("@telefone", m.Telefone);

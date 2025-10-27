@@ -1,6 +1,7 @@
 ﻿using AppSaude_PI.MySQL;
 using AppSaude_PI.Objetos;
 using AppSaude_PI.Telas.Pessoas;
+using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace AppSaude_PI
             this.objPaciente = p;
 
         }
+        
 
         private void BTVoltar_Click(object sender, EventArgs e)
         {
@@ -75,6 +77,12 @@ namespace AppSaude_PI
             }
 
             SQLConn.alterarPaciente(paciente);
+
+            ListarPacientes listaForm = Application.OpenForms.OfType<ListarPacientes>().FirstOrDefault();
+            if (listaForm != null)
+            {
+                listaForm.ListarPacientes_Load_1(sender, e);
+            }
             this.Close();
         }
 

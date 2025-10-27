@@ -43,14 +43,16 @@ namespace AppSaude_PI.Telas
 
         static public List<Consultas> listConsultas()
         {
-            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta from consultas";
+            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta, descricao, valor, pagamento from consultas";
             List<Consultas> lConsultas = SQLConn.SqlGetList(query, reader => new Consultas
             {
                 id = reader.GetInt32("id_consulta"),
                 pacienteNome = reader.GetString("nomePaciente"),
                 medicoNome = reader.GetString("nomeMedico"),
-                dataConsulta = reader.GetDateTime("data_consulta")
-
+                dataConsulta = reader.GetDateTime("data_consulta"),
+                descricao = reader.GetString("Descricao"),
+                valor = reader.GetDecimal("valor"),
+                pagamento = reader.GetBoolean("pagamento")
             });
 
             return lConsultas;

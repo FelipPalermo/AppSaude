@@ -37,7 +37,7 @@ namespace AppSaude_PI
             Nascimento.Value = objMedico.DataNasciscmento;
             TBSexo.Text = objMedico.Sexo;
             MTTelefone.Text = objMedico.Telefone;
-            MTCRM.Text = objMedico.RG;
+            MTCRM.Text = objMedico.CRM;
             MTCpf.Text = objMedico.CPF;
             TBHorarioTrabalho.Text = objMedico.horarioTrabalho;
         }
@@ -72,6 +72,14 @@ namespace AppSaude_PI
             };
 
             SQLConn.alterarMedico(medico);
+
+            ListarMedicos listaForm = Application.OpenForms.OfType<ListarMedicos>().FirstOrDefault();
+            if (listaForm != null)
+            {
+                listaForm.ListarMedicos_Load_1(sender, e);
+            }
+
+
             this.Close();
         }
 

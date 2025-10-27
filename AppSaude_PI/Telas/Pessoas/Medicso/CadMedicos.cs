@@ -84,7 +84,7 @@ namespace AppSaude_PI
             MTTelefone.Text = "";
             MTCRM.Text = "";
             MTCpf.Text = "";
-            TxtHorarioTrabalho.Text = "";
+            TBHorarioTrabalho.Text = "";
 
         }
     }

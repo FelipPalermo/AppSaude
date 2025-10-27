@@ -101,10 +101,6 @@ namespace AppSaude_PI.Telas.Pessoas
         }
         #endregion
 
-        private void BtAtualziar_Click(object sender, EventArgs e)
-        {
-            this.ListarMedicos_Load_1(sender, e);
-        }
 
         private void BtExcluir_Click(object sender, EventArgs e)
         {
