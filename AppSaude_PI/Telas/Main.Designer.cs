@@ -32,11 +32,14 @@
             CadastrarMedico = new Button();
             ListarPessoa = new Button();
             ListarMedicos = new Button();
-            GroupCadastro = new GroupBox();
+            gbPessoas = new GroupBox();
             BtAgendarExame = new Button();
             btPagarExame = new Button();
             btHistoricoExames = new Button();
-            GroupCadastro.SuspendLayout();
+            btCancelarExame = new Button();
+            gbExames = new GroupBox();
+            gbPessoas.SuspendLayout();
+            gbExames.SuspendLayout();
             SuspendLayout();
             // 
             // CadastrarPaciente
@@ -83,23 +86,23 @@
             ListarMedicos.UseVisualStyleBackColor = true;
             ListarMedicos.Click += ListarMedicos_Click;
             // 
-            // GroupCadastro
+            // gbPessoas
             // 
-            GroupCadastro.Controls.Add(ListarMedicos);
-            GroupCadastro.Controls.Add(CadastrarMedico);
-            GroupCadastro.Controls.Add(ListarPessoa);
-            GroupCadastro.Controls.Add(CadastrarPaciente);
-            GroupCadastro.Location = new Point(12, 12);
-            GroupCadastro.Name = "GroupCadastro";
-            GroupCadastro.Size = new Size(375, 135);
-            GroupCadastro.TabIndex = 1;
-            GroupCadastro.TabStop = false;
-            GroupCadastro.Text = "Pessoas";
+            gbPessoas.Controls.Add(ListarMedicos);
+            gbPessoas.Controls.Add(CadastrarMedico);
+            gbPessoas.Controls.Add(ListarPessoa);
+            gbPessoas.Controls.Add(CadastrarPaciente);
+            gbPessoas.Location = new Point(12, 12);
+            gbPessoas.Name = "gbPessoas";
+            gbPessoas.Size = new Size(375, 135);
+            gbPessoas.TabIndex = 1;
+            gbPessoas.TabStop = false;
+            gbPessoas.Text = "Pessoas";
             // 
             // BtAgendarExame
             // 
             BtAgendarExame.Font = new Font("Segoe UI", 10F);
-            BtAgendarExame.Location = new Point(511, 34);
+            BtAgendarExame.Location = new Point(31, 22);
             BtAgendarExame.Name = "BtAgendarExame";
             BtAgendarExame.Size = new Size(159, 45);
             BtAgendarExame.TabIndex = 0;
@@ -110,7 +113,7 @@
             // btPagarExame
             // 
             btPagarExame.Font = new Font("Segoe UI", 10F);
-            btPagarExame.Location = new Point(433, 85);
+            btPagarExame.Location = new Point(31, 73);
             btPagarExame.Name = "btPagarExame";
             btPagarExame.Size = new Size(159, 45);
             btPagarExame.TabIndex = 0;
@@ -120,27 +123,51 @@
             // btHistoricoExames
             // 
             btHistoricoExames.Font = new Font("Segoe UI", 10F);
-            btHistoricoExames.Location = new Point(598, 85);
+            btHistoricoExames.Location = new Point(196, 22);
             btHistoricoExames.Name = "btHistoricoExames";
             btHistoricoExames.Size = new Size(159, 45);
             btHistoricoExames.TabIndex = 0;
             btHistoricoExames.Text = "Historico de exames";
             btHistoricoExames.UseVisualStyleBackColor = true;
+            btHistoricoExames.Click += btHistoricoExames_Click;
+            // 
+            // btCancelarExame
+            // 
+            btCancelarExame.Font = new Font("Segoe UI", 10F);
+            btCancelarExame.Location = new Point(196, 73);
+            btCancelarExame.Name = "btCancelarExame";
+            btCancelarExame.Size = new Size(159, 45);
+            btCancelarExame.TabIndex = 0;
+            btCancelarExame.Text = "Cancelar exame";
+            btCancelarExame.UseVisualStyleBackColor = true;
+            btCancelarExame.Click += btCancelarExame_Click;
+            // 
+            // gbExames
+            // 
+            gbExames.Controls.Add(btHistoricoExames);
+            gbExames.Controls.Add(BtAgendarExame);
+            gbExames.Controls.Add(btPagarExame);
+            gbExames.Controls.Add(btCancelarExame);
+            gbExames.Location = new Point(413, 12);
+            gbExames.Name = "gbExames";
+            gbExames.Size = new Size(375, 135);
+            gbExames.TabIndex = 1;
+            gbExames.TabStop = false;
+            gbExames.Text = "Exames";
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 596);
-            Controls.Add(btHistoricoExames);
-            Controls.Add(btPagarExame);
-            Controls.Add(BtAgendarExame);
-            Controls.Add(GroupCadastro);
+            Controls.Add(gbExames);
+            Controls.Add(gbPessoas);
             Name = "Home";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
-            GroupCadastro.ResumeLayout(false);
+            gbPessoas.ResumeLayout(false);
+            gbExames.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -150,9 +177,11 @@
         private Button CadastrarMedico;
         private Button ListarPessoa;
         private Button ListarMedicos;
-        private GroupBox GroupCadastro;
+        private GroupBox gbPessoas;
         private Button BtAgendarExame;
         private Button btPagarExame;
         private Button btHistoricoExames;
+        private Button btCancelarExame;
+        private GroupBox gbExames;
     }
 }

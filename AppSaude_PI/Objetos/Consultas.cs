@@ -17,6 +17,7 @@ namespace AppSaude_PI.Objetos
         public decimal valor { get; set; }
         public DateTime dataConsulta { get; set; }
         public bool pagamento { get; set; }
+        public bool ativa { get; set; }
 
     }
 }

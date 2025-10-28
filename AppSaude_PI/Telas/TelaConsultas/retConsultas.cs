@@ -43,7 +43,7 @@ namespace AppSaude_PI.Telas
 
         static public List<Consultas> listConsultas()
         {
-            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta, descricao, valor, pagamento from consultas";
+            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta, descricao, valor, pagamento, ativa from consultas";
             List<Consultas> lConsultas = SQLConn.SqlGetList(query, reader => new Consultas
             {
                 id = reader.GetInt32("id_consulta"),
@@ -52,10 +52,51 @@ namespace AppSaude_PI.Telas
                 dataConsulta = reader.GetDateTime("data_consulta"),
                 descricao = reader.GetString("Descricao"),
                 valor = reader.GetDecimal("valor"),
-                pagamento = reader.GetBoolean("pagamento")
+                pagamento = reader.GetBoolean("pagamento"),
+                ativa = reader.GetBoolean("ativa")
             });
 
             return lConsultas;
         }
+
+        static public List<Consultas> listConsultasAtivas()
+        {
+            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta, descricao, valor, pagamento, ativa from consultas " +
+                "Where ativa = true";
+            List<Consultas> lConsultas = SQLConn.SqlGetList(query, reader => new Consultas
+            {
+                id = reader.GetInt32("id_consulta"),
+                pacienteNome = reader.GetString("nomePaciente"),
+                medicoNome = reader.GetString("nomeMedico"),
+                dataConsulta = reader.GetDateTime("data_consulta"),
+                descricao = reader.GetString("Descricao"),
+                valor = reader.GetDecimal("valor"),
+                pagamento = reader.GetBoolean("pagamento"),
+                ativa = reader.GetBoolean("ativa")
+
+            });
+
+            return lConsultas;
+        }
+        static public List<Consultas> listConsultasPessoa(int id)
+        {
+
+            string query = "SELECT id_consulta, nomePaciente, nomeMedico,  data_consulta, descricao, valor, pagamento, ativa " +
+                $"from consultas where id_paciente = {id};";
+            List<Consultas> lConsultas = SQLConn.SqlGetList(query, reader => new Consultas
+            {
+                id = reader.GetInt32("id_consulta"),
+                pacienteNome = reader.GetString("nomePaciente"),
+                medicoNome = reader.GetString("nomeMedico"),
+                dataConsulta = reader.GetDateTime("data_consulta"),
+                descricao = reader.GetString("Descricao"),
+                valor = reader.GetDecimal("valor"),
+                pagamento = reader.GetBoolean("pagamento"),
+                ativa = reader.GetBoolean("ativa")
+            });
+
+            return lConsultas;
+        }
+
     }
 }

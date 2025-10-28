@@ -73,7 +73,7 @@ namespace AppSaude_PI.Telas
         }
         internal void loadConsultas()
         {
-            List<Consultas> lconsultas = retConsultas.listConsultas();
+            List<Consultas> lconsultas = retConsultas.listConsultasAtivas();
 
             foreach (var c in lconsultas)
             {
