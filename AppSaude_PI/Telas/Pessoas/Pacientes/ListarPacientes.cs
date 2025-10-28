@@ -1,5 +1,6 @@
 ﻿using AppSaude_PI.MySQL;
 using AppSaude_PI.Objetos;
+using AppSaude_PI.Telas.Pacientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -118,6 +119,30 @@ namespace AppSaude_PI.Telas.Pessoas
                 cmd => cmd.Parameters.AddWithValue("@id", pacienteSelecionado.id));
             }
             this.ListarPacientes_Load_1(sender, e);
+
+        }
+
+        private void BtHistorico_Click(object sender, EventArgs e)
+        {
+            if (listViewPacientes.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecione um paciente primeiro");
+                return;
+            }
+            else if (listViewPacientes.SelectedItems.Count > 1)
+            {
+                MessageBox.Show("Selecione apenas um por vez!");
+                return;
+            }
+
+            ListViewItem itemSelecionado = listViewPacientes.SelectedItems[0];
+            Paciente pacienteSelecionado = (Paciente)itemSelecionado.Tag;
+
+
+            using (HistoricoPessoa telaHistorico = new HistoricoPessoa(pacienteSelecionado.id))
+            {
+                telaHistorico.ShowDialog();
+            }
 
         }
     }

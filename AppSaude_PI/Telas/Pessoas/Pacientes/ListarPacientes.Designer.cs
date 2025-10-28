@@ -141,6 +141,7 @@
             BtHistorico.TabIndex = 2;
             BtHistorico.Text = "Historico";
             BtHistorico.UseVisualStyleBackColor = true;
+            BtHistorico.Click += BtHistorico_Click;
             // 
             // ListarPacientes
             // 

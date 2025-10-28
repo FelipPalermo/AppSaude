@@ -1,5 +1,6 @@
 using AppSaude_PI.Telas;
 using AppSaude_PI.Telas.Pessoas;
+using AppSaude_PI.Telas.TelaConsultas;
 
 namespace AppSaude_PI
 {
@@ -67,6 +68,25 @@ namespace AppSaude_PI
             {
                 using (var telaMarcarExame = new marcarExame())
                     telaMarcarExame.ShowDialog();
+            }
+
+        }
+
+        private void btHistoricoExames_Click(object sender, EventArgs e)
+        {
+            using (HistoricoExames telaListarPacientes = new HistoricoExames())
+            {
+                using (var telaHistoricoExame = new HistoricoExames())
+                    telaHistoricoExame.ShowDialog();
+            }
+        }
+
+        private void btCancelarExame_Click(object sender, EventArgs e)
+        {
+            using (CancelarExame telaListarPacientes = new CancelarExame())
+            {
+                using (var telaCancelarExame = new CancelarExame())
+                    telaCancelarExame.ShowDialog();
             }
 
         }

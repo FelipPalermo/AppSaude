@@ -36,6 +36,7 @@
             BtAgendarExame = new Button();
             btPagarExame = new Button();
             btHistoricoExames = new Button();
+            btCancelarExame = new Button();
             GroupCadastro.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,7 +100,7 @@
             // BtAgendarExame
             // 
             BtAgendarExame.Font = new Font("Segoe UI", 10F);
-            BtAgendarExame.Location = new Point(511, 34);
+            BtAgendarExame.Location = new Point(433, 34);
             BtAgendarExame.Name = "BtAgendarExame";
             BtAgendarExame.Size = new Size(159, 45);
             BtAgendarExame.TabIndex = 0;
@@ -120,12 +121,24 @@
             // btHistoricoExames
             // 
             btHistoricoExames.Font = new Font("Segoe UI", 10F);
-            btHistoricoExames.Location = new Point(598, 85);
+            btHistoricoExames.Location = new Point(598, 34);
             btHistoricoExames.Name = "btHistoricoExames";
             btHistoricoExames.Size = new Size(159, 45);
             btHistoricoExames.TabIndex = 0;
             btHistoricoExames.Text = "Historico de exames";
             btHistoricoExames.UseVisualStyleBackColor = true;
+            btHistoricoExames.Click += btHistoricoExames_Click;
+            // 
+            // btCancelarExame
+            // 
+            btCancelarExame.Font = new Font("Segoe UI", 10F);
+            btCancelarExame.Location = new Point(598, 85);
+            btCancelarExame.Name = "btCancelarExame";
+            btCancelarExame.Size = new Size(159, 45);
+            btCancelarExame.TabIndex = 0;
+            btCancelarExame.Text = "Cancelar exame";
+            btCancelarExame.UseVisualStyleBackColor = true;
+            btCancelarExame.Click += btCancelarExame_Click;
             // 
             // Home
             // 
@@ -134,6 +147,7 @@
             ClientSize = new Size(800, 596);
             Controls.Add(btHistoricoExames);
             Controls.Add(btPagarExame);
+            Controls.Add(btCancelarExame);
             Controls.Add(BtAgendarExame);
             Controls.Add(GroupCadastro);
             Name = "Home";
@@ -154,5 +168,6 @@
         private Button BtAgendarExame;
         private Button btPagarExame;
         private Button btHistoricoExames;
+        private Button btCancelarExame;
     }
 }
